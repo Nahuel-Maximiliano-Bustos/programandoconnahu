@@ -85,7 +85,7 @@
                 <h2 class="text-lg text-white">Cursos</h2>
                 <p class="text-sm text-gray-400 mt-1">Contenido en video para aprender paso a paso distintos lenguajes y herramientas.</p>
                 <button
-                    onclick="mostrarModal('Cursos', 'https://drive.google.com/drive/folders/1EteBP5e6LVkLJ_eUkk2s9QeGZ7rc66yx?usp=drive_link', 'htmlcss123', 100)"
+                    onclick="mostrarModal('Cursos', 'https://drive.google.com/drive/folders/1EteBP5e6LVkLJ_eUkk2s9QeGZ7rc66yx?usp=drive_link', 'ProgramandoConNahu-cursos2025', 12000)"
                     class="mt-2 w-full py-2 bg-red-600 hover:bg-red-700 text-white rounded">Acceder</button>
             </div>
 
@@ -93,7 +93,7 @@
                 <h2 class="text-lg text-white">Manuales</h2>
                 <p class="text-sm text-gray-400 mt-1">Guías completas y prácticas para aprender a tu ritmo.</p>
                 <button
-                    onclick="mostrarModal('Manuales', 'https://drive.google.com/drive/folders/1vrY2HubZrWSBSaeTmc99prH1mp77Et5b?usp=drive_link', 'infopro456', 200)"
+                    onclick="mostrarModal('Manuales', 'https://drive.google.com/drive/folders/1vrY2HubZrWSBSaeTmc99prH1mp77Et5b?usp=drive_link', 'ProgramandoConNahu-manuales2025', 6000)"
                     class="mt-2 w-full py-2 bg-red-600 hover:bg-red-700 text-white rounded">Acceder</button>
             </div>
 
@@ -101,7 +101,7 @@
                 <h2 class="text-lg text-white">Infografías</h2>
                 <p class="text-sm text-gray-400 mt-1">Resumen visual de conceptos clave para repasar o estudiar rápido.</p>
                 <button
-                    onclick="mostrarModal('Infografías', 'https://drive.google.com/drive/folders/1N4HsJiqzE5CvSDLRloiaXPtKDB_PM-lT?usp=drive_link', 'cmdtab789', 150)"
+                    onclick="mostrarModal('Infografías', 'https://drive.google.com/drive/folders/1N4HsJiqzE5CvSDLRloiaXPtKDB_PM-lT?usp=drive_link', 'ProgramandoConNahu-infografías', 4500)"
                     class="mt-2 w-full py-2 bg-red-600 hover:bg-red-700 text-white rounded">Acceder</button>
             </div>
 
@@ -109,7 +109,7 @@
                 <h2 class="text-lg text-white">Otros Recursos</h2>
                 <p class="text-sm text-gray-400 mt-1">Complementos útiles: comandos, herramientas, plantillas y más.</p>
                 <button
-                    onclick="mostrarModal('Otros Recursos', 'https://drive.google.com/drive/folders/1rPWVvZP5L3bmPCq1s0DGRiVNS_Fm44dW?usp=drive_link', 'cmdtab789', 250)"
+                    onclick="mostrarModal('Otros Recursos', 'https://drive.google.com/drive/folders/1rPWVvZP5L3bmPCq1s0DGRiVNS_Fm44dW?usp=drive_link', 'ProgramandoConNahu-recursos2025', 2500)"
                     class="mt-2 w-full py-2 bg-red-600 hover:bg-red-700 text-white rounded">Acceder</button>
             </div>
         </div>
@@ -131,16 +131,21 @@
         <div class="modal-content">
             <span class="close" onclick="cerrarModal()">&times;</span>
             <h2 class="text-xl font-bold text-red-500" id="modal-title">Acceder a recurso</h2>
-            <p class="text-white mb-2">Costo de acceso: <span id="cost" class="text-yellow-400 font-semibold"></span> pesos</p>
+            <p class="text-white mb-2">Costo de acceso: <span id="cost" class="text-yellow-400 font-semibold"></span> ARS</p>
             <p class="text-white">Ingresá la contraseña para acceder al contenido:</p>
             <input type="password" id="passwordInput" class="w-full p-2 mt-2 text-black rounded" placeholder="Contraseña" />
             <div class="button-container mt-4">
-                <button id="submitPassword" class="py-2 bg-green-600 hover:bg-green-700 text-white rounded w-full">Ingresar</button>
+                <button id="submitPassword" class="py-2 bg-red-600 hover:bg-green-700 text-white rounded w-full">Ingresar</button>
                 <a href="https://link.mercadopago.com.ar/programandoconnahu" target="_blank"
                     class="py-2 bg-yellow-500 text-black hover:bg-yellow-600 rounded w-full text-center">
                     Obtener Contraseña
                 </a>
             </div>
+            <!-- Botón WhatsApp -->
+            <a id="whatsappLink" href="#" target="_blank"
+                class="mt-3 block text-center py-2 bg-green-500 text-white hover:bg-green-600 rounded w-full">
+                📲 Enviar comprobante por WhatsApp
+            </a>
             <p class="text-sm text-gray-400 text-center mt-3">¿Aún no la tenés? Aboná para recibirla al instante.</p>
         </div>
     </div>
@@ -166,6 +171,7 @@
         let currentLink = '';
         let currentPassword = '';
         let currentCost = 0;
+        let currentTitulo = '';
 
         function mostrarModal(titulo, link, pass, cost) {
             document.getElementById('modal').style.display = "block";
@@ -174,6 +180,11 @@
             currentLink = link;
             currentPassword = pass;
             currentCost = cost;
+            currentTitulo = titulo;
+
+            const mensaje = encodeURIComponent(`Hola, te envío el comprobante de mi aporte para obtener la contraseña del recurso: ${titulo}`);
+            const whatsappURL = `https://wa.me/5493513400356?text=${mensaje}`;
+            document.getElementById('whatsappLink').href = whatsappURL;
         }
 
         function cerrarModal() {
