@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recursos Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="logo1.png">
+    <style>
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: #0e0e0e;
+            color: white;
+        }
+
+        .tech-card:hover {
+            transform: scale(1.05);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 50;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #1e1e1e;
+            color: white;
+            padding: 20px;
+            margin: 10% auto;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        input:focus {
+            outline: 2px solid #ef4444;
+        }
+
+        .logo:hover {
+            transform: rotate(15deg);
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 0 15px 3px rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+    <div class="w-full max-w-md space-y-6">
+        <div class="text-center flex items-center justify-center gap-3 mb-2">
+            <img src="logo1.png" alt="Logo personal" class="w-12 h-12 rounded-full logo" />
+            <h1 class="text-4xl font-bold text-red-500">Programando Con Nahu</h1>
+        </div>
+        <p class="text-gray-300 text-sm text-center">Aprendé a programar desde cero con recursos de calidad, prácticos y accesibles.</p>
+
+        <!-- Recursos -->
+        <div class="space-y-4">
+            <div class="tech-card transition transform bg-white/5 backdrop-blur p-4 rounded-xl border border-white/10">
+                <h2 class="text-lg text-white">Cursos</h2>
+                <p class="text-sm text-gray-400 mt-1">Contenido en video para aprender paso a paso distintos lenguajes y herramientas.</p>
+                <button
+                    onclick="mostrarModal('Cursos', 'https://drive.google.com/drive/folders/1EteBP5e6LVkLJ_eUkk2s9QeGZ7rc66yx?usp=drive_link', 'htmlcss123', 100)"
+                    class="mt-2 w-full py-2 bg-red-600 hover:bg-red-700 text-white rounded">Acceder</button>
+            </div>
+
+            <div class="tech-card transition transform bg-white/5 backdrop-blur p-4 rounded-xl border border-white/10">
+                <h2 class="text-lg text-white">Manuales</h2>
+                <p class="text-sm text-gray-400 mt-1">Guías completas y prácticas para aprender a tu ritmo.</p>
+                <button
+                    onclick="mostrarModal('Manuales', 'https://drive.google.com/drive/folders/1vrY2HubZrWSBSaeTmc99prH1mp77Et5b?usp=drive_link', 'infopro456', 200)"
+                    class="mt-2 w-full py-2 bg-red-600 hover:bg-red-700 text-white rounded">Acceder</button>
+            </div>
+
+            <div class="tech-card transition transform bg-white/5 backdrop-blur p-4 rounded-xl border border-white/10">
+                <h2 class="text-lg text-white">Infografías</h2>
+                <p class="text-sm text-gray-400 mt-1">Resumen visual de conceptos clave para repasar o estudiar rápido.</p>
+                <button
+                    onclick="mostrarModal('Infografías', 'https://drive.google.com/drive/folders/1N4HsJiqzE5CvSDLRloiaXPtKDB_PM-lT?usp=drive_link', 'cmdtab789', 150)"
+                    class="mt-2 w-full py-2 bg-red-600 hover:bg-red-700 text-white rounded">Acceder</button>
+            </div>
+
+            <div class="tech-card transition transform bg-white/5 backdrop-blur p-4 rounded-xl border border-white/10">
+                <h2 class="text-lg text-white">Otros Recursos</h2>
+                <p class="text-sm text-gray-400 mt-1">Complementos útiles: comandos, herramientas, plantillas y más.</p>
+                <button
+                    onclick="mostrarModal('Otros Recursos', 'https://drive.google.com/drive/folders/1rPWVvZP5L3bmPCq1s0DGRiVNS_Fm44dW?usp=drive_link', 'cmdtab789', 250)"
+                    class="mt-2 w-full py-2 bg-red-600 hover:bg-red-700 text-white rounded">Acceder</button>
+            </div>
+        </div>
+
+        <!-- Aporte llamativo -->
+        <div class="mt-10 text-center space-y-4">
+            <h3 class="text-xl font-semibold text-white">¿Te resultaron útiles estos recursos?</h3>
+            <p class="text-gray-400 text-sm">Podés apoyar el proyecto con un pequeño aporte y compartiéndolo en tus redes.
+                ¡Gracias por ser parte de esta comunidad!</p>
+            <a href="https://link.mercadopago.com.ar/programandoconnahu" target="_blank"
+                class="inline-block bg-red-600 text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition transform">
+                💖 Aportar al proyecto
+            </a>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <h2 class="text-xl font-bold text-red-500" id="modal-title">Acceder a recurso</h2>
+            <p class="text-white mb-2">Costo de acceso: <span id="cost" class="text-yellow-400 font-semibold"></span> pesos</p>
+            <p class="text-white">Ingresá la contraseña para acceder al contenido:</p>
+            <input type="password" id="passwordInput" class="w-full p-2 mt-2 text-black rounded" placeholder="Contraseña" />
+            <div class="button-container mt-4">
+                <button id="submitPassword" class="py-2 bg-green-600 hover:bg-green-700 text-white rounded w-full">Ingresar</button>
+                <a href="https://link.mercadopago.com.ar/programandoconnahu" target="_blank"
+                    class="py-2 bg-yellow-500 text-black hover:bg-yellow-600 rounded w-full text-center">
+                    Obtener Contraseña
+                </a>
+            </div>
+            <p class="text-sm text-gray-400 text-center mt-3">¿Aún no la tenés? Aboná para recibirla al instante.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-12 text-center">
+        <p class="text-gray-500 text-sm mb-2">Conectá conmigo en redes y descubrí más contenido</p>
+        <div class="flex justify-center gap-4 mb-4">
+            <a href="https://www.youtube.com/@programandoconnahu4927" target="_blank"><i data-lucide="youtube"
+                    class="text-white hover:text-red-500 w-6 h-6"></i></a>
+            <a href="https://www.twitch.tv/programandoconnahu" target="_blank"><i data-lucide="twitch"
+                    class="text-white hover:text-purple-500 w-6 h-6"></i></a>
+            <a href="https://www.linkedin.com/in/nahuel-maximiliano-bustos-b5b977288/" target="_blank"><i data-lucide="linkedin"
+                    class="text-white hover:text-blue-500 w-6 h-6"></i></a>
+            <a href="https://github.com/Nahuel-Maximiliano-Bustos" target="_blank"><i data-lucide="github"
+                    class="text-white hover:text-gray-400 w-6 h-6"></i></a>
+            <a href="https://www.instagram.com/programandoconnahu/" target="_blank"><i data-lucide="instagram"
+                    class="text-white hover:text-pink-500 w-6 h-6"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        let currentLink = '';
+        let currentPassword = '';
+        let currentCost = 0;
+
+        function mostrarModal(titulo, link, pass, cost) {
+            document.getElementById('modal').style.display = "block";
+            document.getElementById('modal-title').innerText = `Acceder a ${titulo}`;
+            document.getElementById('cost').innerText = cost;
+            currentLink = link;
+            currentPassword = pass;
+            currentCost = cost;
+        }
+
+        function cerrarModal() {
+            document.getElementById('modal').style.display = "none";
+            document.getElementById('passwordInput').value = '';
+        }
+
+        document.getElementById('submitPassword').addEventListener('click', function () {
+            const enteredPassword = document.getElementById('passwordInput').value;
+            if (enteredPassword === currentPassword) {
+                alert("Contraseña correcta. Acceso concedido.");
+                window.open(currentLink, '_blank');
+                cerrarModal();
+            } else {
+                alert("Contraseña incorrecta. Si no la tenés, aboná para obtenerla.");
+            }
+        });
+
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
